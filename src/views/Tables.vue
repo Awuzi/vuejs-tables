@@ -1,31 +1,26 @@
 <template>
-    <div class="les-tables">
-        <br>
-        <input type="radio" v-model="n">10
-        <input type="radio" v-model="n">13
-        <TableMultiplication v-for="tables in 10" v-bind:n="parseInt(tables)"/>
-        <hr/>
+    <div>
+        <h3>Les tables de multiplications</h3>
+        <input type="radio" id="10" name="10" value="10" v-model="choice">
+        <label for="10">10</label>
+        <input type="radio" id="13" name="13" value="13" v-model="choice">
+        <label for="13">13</label><br>
+        <LesTables v-bind:choice="parseInt(choice)"/>
     </div>
 </template>
 
 <script>
-    import TableMultiplication from '../components/TableMultiplication.vue'
+    import LesTables from '../components/LesTables'
 
     export default {
         name: 'tables',
         data: function () {
             return {
-                n: 0
+                choice: 10
             }
         },
         components: {
-            TableMultiplication,
+            LesTables,
         }
     }
 </script>
-
-<style>
-    .les-tables {
-        display: block;
-    }
-</style>
